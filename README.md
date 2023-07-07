@@ -6,3 +6,4 @@ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/st
 Creting argocd manifest file form argocd repo: kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/v2.5.8/manifests/install.yaml
 verify the items are created with: kubectl get all -n argocd
 To access argcd UI, you need port forwaring with this command: kubectl port-forward svc/argocd-server -n argocd 8080:443 
+to get your password, you use this command : export argocd_password=$(kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d) echo
